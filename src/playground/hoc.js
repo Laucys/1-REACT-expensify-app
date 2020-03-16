@@ -8,10 +8,15 @@ const Info = (props) => (
     </div>
 );
 
-const withAdminWarning = () => {
-
+const withAdminWarning = (WrappedComponent) => {
+    return (props) => (
+        <div>
+        <p> This is a private info. Please don't share!</p>
+        <WrappedComponent />
+        </div>
+    )
 };
 
 const AdminInfo = withAdminWarning(Info);
 
-ReactDOM.render(<Info info="These are the details."/>, document.getElementById('app'));
+ReactDOM.render(<AdminInfo info="These are the details."/>, document.getElementById('app'));
