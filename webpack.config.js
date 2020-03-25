@@ -2,7 +2,7 @@ const path = require('path');
 
 module.exports = (env) => {
   const isProduction = env === 'production';
-
+  console.log('env', env);
   return {
     entry: './src/app.js',
     output: {
@@ -27,7 +27,6 @@ module.exports = (env) => {
     devServer: {
       contentBase: path.join(__dirname, 'public'),
       historyApiFallback: true
-    },
-    
+    }
   };
 };
