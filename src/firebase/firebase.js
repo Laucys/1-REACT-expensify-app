@@ -12,6 +12,24 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
-firebase.database().ref().set({
-    name: 'Dainius Laucys'
+const database = firebase.database();
+
+database.ref().set({
+    name: 'Dainius Laucys',
+    age: 25,
+    isSingle: false,
+    location: {
+        city: 'Vilnius',
+        country: 'Lithuania'
+    }
+});
+
+// database.ref().set('This is my data.');
+
+database.ref('age').set(26);
+database.ref('location/city').set('Telsiai');
+
+database.ref('attributes').set({
+    height: 178,
+    weight: 75
 });
