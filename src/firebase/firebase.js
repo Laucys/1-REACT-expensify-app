@@ -17,19 +17,29 @@ const database = firebase.database();
 database.ref().set({
     name: 'Dainius Laucys',
     age: 25,
-    isSingle: false,
+    stressLevel: 6,
+    job: {
+        title: 'Software developer',
+        company: 'Google'
+    },
     location: {
         city: 'Vilnius',
         country: 'Lithuania'
     }
+}).then(() => {
+    console.log('Data is saved.');
+}).catch((e) => {
+    console.log('This failed', e);
 });
 
-// database.ref().set('This is my data.');
-
-database.ref('age').set(26);
-database.ref('location/city').set('Telsiai');
-
-database.ref('attributes').set({
-    height: 178,
-    weight: 75
+database.ref().update({
+    stressLevel: 9,
+    'job/company': 'Amazon',
+    'location/city': 'Seattle'
 });
+
+// database.ref().remove().then(() => {
+//         console.log('Data is removed.');
+//     }).catch((e) => {
+//         console.log('This failed', e);
+//     });
