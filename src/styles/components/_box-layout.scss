@@ -1,3 +1,29 @@
 .box-layout {
-    background-image: url('/public/images/bg.jpg');
-}
+    background: url('/images/bg.jpg');
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .box-layout__box {
+      background: fade-out($color: $white-color, $amount: .15);
+      border-radius: 4px;
+      text-align: center;
+      width: 25rem;
+      padding: $l-size $s-size;
+  }
+
+  .box-layout__title {
+      margin: 0 0 $m-size 0;
+      line-height: 1;
+  }
+
+  .box-layout__btn {
+    background: $blue-color;
+    padding: $m-size;
+    border: none;
+    color: $white-color;
+  }
