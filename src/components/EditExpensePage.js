@@ -21,16 +21,15 @@ export class EditExpensePage extends React.Component {
           </div>
         </div>
         <div className="content-container">
-          <ExpenseForm
-            expense={this.props.expense}
-            onSubmit={this.onSubmit}
-          />
-          <button className="button button--secondary" onClick={this.onRemove}>Remove Expense</button>
+          <ExpenseForm expense={this.props.expense} onSubmit={this.onSubmit} />
+          <button className="button button--secondary" onClick={this.onRemove}>
+            Remove Expense
+          </button>
         </div>
       </div>
     );
   }
-};
+}
 
 const mapStateToProps = (state, props) => ({
   expense: state.expenses.find(expense => expense.id === props.match.params.id)
